@@ -67,7 +67,7 @@ is the better choice.
 
 ## Read next
 
-- [**The skill**](skills/turn-based-development/SKILL.md) — 10 rules, the whole product
+- [**The skill**](skills/turn-based-development/SKILL.md) — 11 rules, the whole product
 - [Rationale](docs/rationale.md) — why each rule exists, and what it costs
 - [Comparison](docs/comparison.md) — versus `incremental-implementation`
 - [Adapting it](docs/adapting.md) — project files, `references/`, tuning turn size

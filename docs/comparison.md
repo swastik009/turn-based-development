@@ -46,8 +46,8 @@ the diff.
 | Gate condition | tests pass, build succeeds | a person read it |
 | Batch escape hatch | `/build auto` — one approval, then the whole plan | none by design |
 | Explains its approach first | — | rule 1 |
-| Grades its sources | — | rule 7 |
-| Halts on irreversible actions | in `auto` mode, by category | rule 9, by predicate |
+| Grades its sources | — | rule 8 |
+| Halts on irreversible actions | in `auto` mode, by category | rule 10, by predicate |
 
 ## Which to use
 
@@ -58,5 +58,5 @@ known feature.
 **This** when the point is that you personally understand and can maintain the result, and you are
 willing to be present for it.
 
-Rule 9 is a debt to `/build`, which halts on *"anything you can't undo with `git revert`"* — a
+Rule 10 is a debt to `/build`, which halts on *"anything you can't undo with `git revert`"* — a
 sharper predicate than any category list, and worth adopting.

@@ -1,6 +1,6 @@
 # When sources contradict each other
 
-Expands rule 7 in `SKILL.md`, which covers grading a source. This covers the harder case: two
+Expands rule 8 in `SKILL.md`, which covers grading a source. This covers the harder case: two
 sources you trust that do not agree.
 
 Do not quietly pick one. This happens more than you would expect — an implementation's own code
