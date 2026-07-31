@@ -50,6 +50,24 @@ Agreed?
 The split is the highest-leverage decision in the workflow: every later gate operates on units
 this step defined, so a wrong split makes every turn after it wrong.
 
+**Once agreed, write the list to the status file** — `tasks/plan.md` unless the repo already has
+somewhere for this — and tick each turn off as it lands:
+
+```markdown
+## Task 2/4 — Rate limit the API client
+- [x] 1. token bucket helper     (limits.py)
+- [x] 2. test for the helper     (test_limits.py)
+- [ ] 3. wire into the client    (client.py)
+- [ ] 4. test the wiring         (test_client.py)
+```
+
+**Read the position from that file, never from memory of the conversation.** Sixty turns do not
+fit in one context window: the early ones are summarised away, and a remembered count silently
+becomes a guess at exactly the point the project is large enough to need one. The file also
+survives closing the session, and lets the engineer check progress without asking.
+
+The tick is part of the turn it belongs to, so it lands in that turn's commit (rule 9).
+
 If the split turns out wrong mid-task, say so and re-agree it. Do not silently re-plan, and do not
 quietly extend the count — a denominator that drifts without comment makes the progress line a
 guess. Record the change per rule 9.
@@ -137,8 +155,8 @@ When sources disagree, or the exact bytes matter: `references/researching-contra
 
 ### 9. Docs change in the same commit as the code
 
-Behaviour changed → update the spec. Convention changed → update the agent instructions. Plan
-moved → update the status section. Drift is a bug, not tidying.
+Behaviour changed → update the spec. Convention changed → update the agent instructions. A turn
+landed → tick it off in the status file from rule 0. Drift is a bug, not tidying.
 
 ### 10. Record rejected alternatives with reasons
 
