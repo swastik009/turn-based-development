@@ -1,6 +1,6 @@
 # Make being wrong loud
 
-An engineering principle, not a workflow rule. It is the natural partner of rules 7 and 8 in
+An engineering principle, not a workflow rule. It is the natural partner of rules 6 and 7 in
 `SKILL.md`, and agents violate it by default: asked to make something robust, an agent will reach
 for a fallback, and a fallback is usually a silent failure wearing a helpful costume.
 

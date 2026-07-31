@@ -8,7 +8,7 @@ session. The rules do not depend on the tool.
 your stack, directory layout and definition of done belong in a project file. Mixing them makes
 both harder to reuse.
 
-The line falls between a published standard and a house style. Rule 4 requires Conventional Commits
+The line falls between a published standard and a house style. Rule 3 requires Conventional Commits
 with a scope, because that is a spec anyone can look up — but the *scope vocabulary* is yours, and
 belongs in the project file alongside everything else on that list.
 

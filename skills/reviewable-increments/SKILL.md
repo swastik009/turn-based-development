@@ -70,11 +70,11 @@ its sessions — you finish one task, close the session, and open the next one t
 of the conversation left. A remembered count becomes a guess the moment a session ends, and a
 guess looks exactly like a fact. The file also lets the engineer check progress without asking.
 
-The tick is part of the turn it belongs to, so it lands in that turn's commit (rule 9).
+The tick is part of the turn it belongs to, so it lands in that turn's commit (rule 8).
 
 If the split turns out wrong mid-task, say so and re-agree it. Do not silently re-plan, and do not
 quietly extend the count — a denominator that drifts without comment makes the progress line a
-guess. Record the change per rule 9.
+guess. Record the change per rule 8.
 
 ### 1. Explain a new plan before writing it
 
@@ -104,12 +104,7 @@ Violations, even when the result is correct and the tests pass:
 
 Turn size is the engineer's to set. Ask which; never widen a turn on your own.
 
-### 3. Test and implementation are separate turns
-
-Write the test. Run it. Confirm it fails for the right reason — a missing module, not a typo in
-the test. Stop. Implement in the next turn.
-
-### 4. Ask before every commit, and ask for review
+### 3. Ask before every commit, and ask for review
 
 Stop and ask both:
 
@@ -124,7 +119,7 @@ without the parenthesised scope does not satisfy this. The scope names the area 
 file path. If the repo has no established scope vocabulary, propose one and get it agreed rather
 than inventing a scope per commit.
 
-### 5. Do not start the next change until the commit is resolved
+### 4. Do not start the next change until the commit is resolved
 
 Committed, deferred, or declined — but answered. *"This next bit is related, I'll fold it in"* is
 how one reviewable commit becomes an end-of-session pile.
@@ -134,13 +129,13 @@ change of subject leave the commit unresolved. Not being told to stop is not bei
 not being told to go is not being told to stop. Ask again, in one line, before touching anything
 else.
 
-### 6. Never transplant unreviewed code
+### 5. Never transplant unreviewed code
 
 Nothing arrives from a stash, another branch, an old commit, a sibling repo, or a previous
 session — not by `stash pop`, and not by copying its contents into a file either. Recovered work
 re-enters through review.
 
-### 7. Prove claims, do not assert them
+### 6. Prove claims, do not assert them
 
 Break the thing a test guards and show it fail. Check a fixture's actual bytes. Vary a limit and
 measure that it binds. A green run is not evidence that a test asserts anything.
@@ -148,7 +143,7 @@ measure that it binds. A green run is not evidence that a test asserts anything.
 Partner principle: `references/make-being-wrong-loud.md` — read before designing error handling,
 fallbacks, or anything parsing input from outside the repo.
 
-### 8. Look it up at the source, never from memory
+### 7. Look it up at the source, never from memory
 
 Read the actual docs or source before writing against any external API, library, model, or
 service. Name the source used and grade it: a captured response is fact, verbatim source is
@@ -157,19 +152,14 @@ inferences as inferences.
 
 When sources disagree, or the exact bytes matter: `references/researching-contracts.md`.
 
-### 9. Docs change in the same commit as the code
+### 8. Docs change in the same commit as the code
 
 Behaviour changed → update the spec. Convention changed → update the agent instructions. A turn
 landed → tick it off in the status file from rule 0. Drift is a bug, not tidying.
 
-### 10. Record rejected alternatives with reasons
+### 9. Escalate anything the repo cannot take back
 
-A rejected option with a stated reason is a decision. Without one it is an oversight, and gets
-re-proposed every few sessions.
-
-### 11. Escalate anything the repo cannot take back
-
-Rules 2 and 4 assume a bad turn costs a `git revert`. Some changes escape that: a dropped column,
+Rules 2 and 3 assume a bad turn costs a `git revert`. Some changes escape that: a dropped column,
 a rotated secret, a deploy, a deleted branch, a sent email, a paid API call at volume.
 
 **Test: if this turn is wrong, can the repository undo it alone?** If no, do not treat it as a
@@ -200,8 +190,8 @@ real service"* is the highest-value line in a turn.
 ## Spec and plan
 
 **Spec** — written after design discussion, before code. Records what is being built, the
-decisions and their reasons, the error paths, the testing approach. Committed and reviewed like
-code.
+decisions and their reasons, **what was rejected and why**, the error paths, and the testing
+approach. Committed and reviewed like code.
 
 **Plan** — breaks the spec into turns. Exact files, real code per step, no placeholders: no
 "TBD", no "add appropriate error handling", no "similar to step 3".

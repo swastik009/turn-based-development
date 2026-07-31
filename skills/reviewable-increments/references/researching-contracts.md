@@ -1,6 +1,6 @@
 # Researching a contract, and grading the evidence
 
-Expands rule 8 in `SKILL.md`. Read this before writing a client for an external API, model, or
+Expands rule 7 in `SKILL.md`. Read this before writing a client for an external API, model, or
 service, and whenever two sources disagree about how something behaves.
 
 ## Grade what you have
