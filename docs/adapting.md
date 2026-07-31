@@ -14,13 +14,13 @@ belongs in the project file alongside everything else on that list.
 
 **Use `references/` for anything long.** `SKILL.md` stays resident for the whole session, so it
 holds only the rules. Depth goes in
-[`references/`](../skills/reviewable-increments/references/) and is linked from the rule it belongs
+[`references/`](../skills/turn-based-development/references/) and is linked from the rule it belongs
 to, so the agent opens it only when the situation calls for it. Two ship with the skill:
 
 | File | Read when |
 |---|---|
-| [`make-being-wrong-loud.md`](../skills/reviewable-increments/references/make-being-wrong-loud.md) | designing error handling, fallbacks, or anything parsing outside input |
-| [`researching-contracts.md`](../skills/reviewable-increments/references/researching-contracts.md) | two sources disagree, or the exact bytes matter |
+| [`make-being-wrong-loud.md`](../skills/turn-based-development/references/make-being-wrong-loud.md) | designing error handling, fallbacks, or anything parsing outside input |
+| [`researching-contracts.md`](../skills/turn-based-development/references/researching-contracts.md) | two sources disagree, or the exact bytes matter |
 
 Add your own the same way — API contracts, architecture decisions, domain notes.
 

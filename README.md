@@ -1,4 +1,4 @@
-# Reviewable Increments
+# Turn-Based Development
 
 An agent skill for engineers who want granular control over what an AI agent writes.
 
@@ -37,22 +37,22 @@ overhead.
 ## Install
 
 ```bash
-git clone https://github.com/swastik009/reviewable-increments.git
-cd reviewable-increments
+git clone https://github.com/swastik009/turn-based-development.git
+cd turn-based-development
 ./install.sh
 ```
 
 Symlinks the skill into `~/.agents/skills/` and points each installed runtime at it, so
 `git pull` updates all of them. Claude Code also reads `~/.claude/skills/`; Codex, Copilot CLI
 and Gemini CLI read `~/.agents/skills/`. For Cursor, Grok CLI or direct API use, paste
-[`SKILL.md`](skills/reviewable-increments/SKILL.md) into your rules file — it names no
+[`SKILL.md`](skills/turn-based-development/SKILL.md) into your rules file — it names no
 Claude-specific feature.
 
 Claude Code, without cloning:
 
 ```
-/plugin marketplace add swastik009/reviewable-increments
-/plugin install reviewable-increments@reviewable-increments
+/plugin marketplace add swastik009/turn-based-development
+/plugin install turn-based-development@turn-based-development
 ```
 
 ## When not to use it
@@ -67,7 +67,7 @@ is the better choice.
 
 ## Read next
 
-- [**The skill**](skills/reviewable-increments/SKILL.md) — 11 rules, the whole product
+- [**The skill**](skills/turn-based-development/SKILL.md) — 10 rules, the whole product
 - [Rationale](docs/rationale.md) — why each rule exists, and what it costs
 - [Comparison](docs/comparison.md) — versus `incremental-implementation`
 - [Adapting it](docs/adapting.md) — project files, `references/`, tuning turn size

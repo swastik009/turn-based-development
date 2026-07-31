@@ -16,7 +16,7 @@ Two things genuinely differ.
 cut through the stack, and its own example is `Slice 1: Create a task (DB + API + basic UI)`. Every
 slice ends working end-to-end.
 
-Reviewable Increments sizes a turn so a human can *read* it. Those goals pull in opposite
+Turn-Based Development sizes a turn so a human can *read* it. Those goals pull in opposite
 directions: a slice that leaves the system working necessarily spans files, and a change small
 enough to review carefully usually cannot.
 

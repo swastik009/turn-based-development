@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # Link this skill into every agent runtime installed on this machine.
 #
-# Canonical copy: skills/reviewable-increments/SKILL.md in this repo.
+# Canonical copy: skills/turn-based-development/SKILL.md in this repo.
 # Everything else is a symlink, so `git pull` updates every runtime at once.
 set -euo pipefail
 
-SKILL_NAME="reviewable-increments"
+SKILL_NAME="turn-based-development"
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 SRC="$REPO/skills/$SKILL_NAME"
 

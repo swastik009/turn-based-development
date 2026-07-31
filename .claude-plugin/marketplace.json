@@ -1,5 +1,5 @@
 {
-  "name": "reviewable-increments",
+  "name": "turn-based-development",
   "owner": {
     "name": "Swastik Thapaliya",
     "email": "swastik.thapaliya@gmail.com"
@@ -10,7 +10,7 @@
   },
   "plugins": [
     {
-      "name": "reviewable-increments",
+      "name": "turn-based-development",
       "source": "./",
       "description": "Design before code, one reviewable block per turn, and a commit gate the agent may never pass on its own.",
       "version": "1.0.0",

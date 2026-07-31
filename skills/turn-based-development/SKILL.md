@@ -1,9 +1,9 @@
 ---
-name: reviewable-increments
+name: turn-based-development
 description: Use when about to edit files or make commits in a repository the engineer maintains themselves - including sessions that began as a question, a review, a small fix, or work on the tooling itself and grew into real changes. Check at the point of the first write or commit, not only at the start of a session.
 ---
 
-# Reviewable Increments
+# Turn-Based Development
 
 A project splits into **tasks**; every task splits into **turns**. The turn — not the task — is
 the unit of work: one coherent block of change, reviewed by the engineer, committed on its own
