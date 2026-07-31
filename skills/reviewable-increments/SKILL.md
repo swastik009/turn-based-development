@@ -79,6 +79,11 @@ than inventing a scope per commit.
 Committed, deferred, or declined — but answered. *"This next bit is related, I'll fold it in"* is
 how one reviewable commit becomes an end-of-session pile.
 
+**A reply that is not an answer is not an answer.** New instructions, a follow-up question, or a
+change of subject leave the commit unresolved. Not being told to stop is not being told to go, and
+not being told to go is not being told to stop. Ask again, in one line, before touching anything
+else.
+
 ### 6. Never transplant unreviewed code
 
 Nothing arrives from a stash, another branch, an old commit, a sibling repo, or a previous
@@ -156,6 +161,7 @@ deviation, with the reason.
 | "This is a simple change, so..." | simple changes are where unreviewed code hides |
 | "As you know…" | skipping an explanation the engineer may need |
 | "I've updated several files" | review is no longer possible |
+| "they moved on, so it's fine" | a non-answer treated as approval |
 | "Following best practice" | no reason given; give the actual one |
 | "This should work" | it was not run |
 | *silence about an assumption* | the most expensive failure mode |
