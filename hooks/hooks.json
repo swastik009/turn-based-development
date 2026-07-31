@@ -1,0 +1,19 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "git rev-parse --is-inside-work-tree >/dev/null 2>&1 && printf \"%s\" \"{\\\"hookSpecificOutput\\\":{\\\"hookEventName\\\":\\\"SessionStart\\\",\\\"additionalContext\\\":\\\"This is a git repository. Use the turn-based-development skill for work here: split the task into turns, agree the list before starting, and stop for review before every commit. Load it before the first file edit or commit, including for changes that look too small to need it.\\\"}}\" || true",
+            "shell": "bash",
+            "async": false,
+            "timeout": 5,
+            "statusMessage": "Checking workflow"
+          }
+        ]
+      }
+    ]
+  }
+}

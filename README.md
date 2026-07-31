@@ -50,12 +50,43 @@ and Gemini CLI read `~/.agents/skills/`. For Cursor, Grok CLI or direct API use,
 [`SKILL.md`](skills/turn-based-development/SKILL.md) into your rules file — it names no
 Claude-specific feature.
 
-Claude Code, without cloning:
+Claude Code, without cloning — **this route also installs the trigger below**:
 
 ```
 /plugin marketplace add swastik009/turn-based-development
 /plugin install turn-based-development@turn-based-development
 ```
+
+## Making it actually fire
+
+Installing the skill is not enough, and this is the part everyone gets wrong.
+
+A skill's `description` answers *"what kind of task is this?"* — so a model reads
+`add a retry helper` and looks for a skill about retries. This isn't a kind of task. It is how
+you do **any** task, so there is no request for it to match against. Tested on a real repo, it
+did not fire once. The skill sat correctly installed and unread while the agent edited files.
+
+Something has to *tell* the agent it exists. Pick one:
+
+| | Covers | Setup |
+|---|---|---|
+| **Plugin install** | every git repo | none — [`hooks/hooks.json`](hooks/hooks.json) ships with it |
+| **`CLAUDE.md` line** | one repo | one line, no config |
+| **`/turn-based-development`** | one session | type it |
+
+If you installed with `install.sh` rather than as a plugin, the hook does not come with it — a
+shell script quietly editing your global settings would be worse than the problem. Either add
+[`hooks/hooks.json`](hooks/hooks.json)'s `SessionStart` entry to `~/.claude/settings.json`
+yourself, or use the `CLAUDE.md` route:
+
+```markdown
+**Use the `turn-based-development` skill for all work in this repository.** Load it before the
+first file edit or commit — not only at the start of a session.
+```
+
+The shipped hook fires on `startup|clear|compact` and stays silent outside a git repo. The
+`compact` matcher matters: compaction discards the injected instruction along with everything
+else, so without it the workflow quietly stops applying partway through a long task.
 
 ## When not to use it
 
