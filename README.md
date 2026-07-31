@@ -27,9 +27,11 @@ turn, it:
 3. shows the exact files and commit message, and asks you to review before anything lands
 
 ```
-Task 2/4 — Rate limit the API client
-Turn 1/4 — token bucket helper
+Turn 2 — the implementation
 ```
+
+The agreed turn list lives in `tasks/plan.md` and is ticked off as each one lands, so progress is
+something you check rather than something the agent remembers.
 
 Approval never carries to the next turn. Ten tasks might be sixty turns — that is the intent, not
 overhead.

@@ -29,7 +29,7 @@ Not preferences. An agent that "improves" on these has broken the workflow.
 
 ### 0. Split the task into turns, and agree the list before starting
 
-**Mandatory, with no exceptions.** A one-line typo fix is `Task 1/1`, `Turn 1/1`. There is no
+**Mandatory, with no exceptions.** A one-line typo fix is one task with one turn. There is no
 threshold below which the structure is skipped, because deciding what counts as "small enough"
 is the judgement this workflow exists to keep away from the agent.
 
@@ -42,7 +42,7 @@ enumerate **that task's** turns. Numbered, one line each, naming what changes an
 Then ask for the list to be agreed:
 
 ```
-Task 2/4 — Rate limit the API client
+Task 3 — Rate limit the API client
 Splitting into turns before I start:
   1. token bucket helper     (limits.py)
   2. test for the helper     (test_limits.py)
@@ -58,23 +58,22 @@ this step defined, so a wrong split makes every turn after it wrong.
 somewhere for this — and tick each turn off as it lands:
 
 ```markdown
-## Task 2/4 — Rate limit the API client
+## Task 3 — Rate limit the API client
 - [x] 1. token bucket helper     (limits.py)
 - [x] 2. test for the helper     (test_limits.py)
 - [ ] 3. wire into the client    (client.py)
 - [ ] 4. test the wiring         (test_client.py)
 ```
 
-**Read the position from that file, never from memory of the conversation.** A project outlives
-its sessions — you finish one task, close the session, and open the next one tomorrow with none
-of the conversation left. A remembered count becomes a guess the moment a session ends, and a
-guess looks exactly like a fact. The file also lets the engineer check progress without asking.
+**The file is the source of truth for position, not memory of the conversation.** A project
+outlives its sessions — you finish one task, close the session, and open the next one tomorrow
+with none of the conversation left. It also lets the engineer check progress without asking, and
+means a total never has to be carried in anyone's head.
 
 The tick is part of the turn it belongs to, so it lands in that turn's commit (rule 9).
 
-If the split turns out wrong mid-task, say so and re-agree it. Do not silently re-plan, and do not
-quietly extend the count — a denominator that drifts without comment makes the progress line a
-guess. Record the change per rule 9.
+If the split turns out wrong mid-task, say so and re-agree it in the file. Do not silently
+re-plan. Record the change per rule 9.
 
 ### 1. Explain a new plan before writing it
 
@@ -181,12 +180,15 @@ consequence.
 
 ## Turn structure
 
-Every turn opens with two heading lines, so position is never ambiguous:
+Every turn opens with a heading naming its number and what it does:
 
 ```
-Task 2/4 — Rate limit the API client
-Turn 1/4 — token bucket helper
+Turn 2 — the implementation
 ```
+
+No running total. The totals live in the status file, where they are checked rather than
+remembered — a number carried in a heading has to be forecast, and a forecast that shifts
+mid-task is worse than no number, because it reads as a commitment.
 
 Then:
 
