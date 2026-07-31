@@ -45,3 +45,49 @@ possibly the agent — with no memory of the discussion.
 It is slower to start, and it requires you to actually be present. That is the whole trade, stated
 plainly: you are buying comprehension with time, and if you do not want to spend the time, the
 workflow will feel like friction rather than control.
+
+## Is this a step backwards?
+
+The obvious objection: agents were supposed to free us from supervising every edit, and this puts
+the supervision back. Is this just a copilot with extra steps?
+
+**Partly, yes — and deliberately.** Autonomy is genuinely what is being traded away. There is no
+autonomous mode and no plan to add one, because an autonomous mode is not a feature of this
+workflow, it is its negation.
+
+But the objection conflates *autonomy* with *unsupervised*, and those are different axes.
+
+A 2024 copilot was an autocomplete: no plan, no spec, no research, no reasoning it could defend.
+Under this skill the agent still does the whole engineering job — reads the actual documentation
+before designing against it, writes the spec, proposes a design and argues for it, writes tests
+before implementations, and proves its own claims instead of asserting them. It does not do less.
+It reports more often.
+
+What actually changes is the **latency of oversight**, not its quantity. A tech lead who insists on
+small pull requests is not nostalgic for 2015. Nobody argues that reviewing a junior engineer's
+work means you have rejected the idea of hiring juniors.
+
+Three things worth weighing before dismissing it:
+
+**Review is the bottleneck, not generation.** Once an agent can produce more code per hour than
+anyone can read carefully, time saved generating code nobody understands is borrowed against a
+maintenance bill that comes due later, to someone, possibly you.
+
+**Autonomy is a dial, not a direction.** This is calibrated for one setting: load-bearing code, an
+unfamiliar stack, a repository you personally maintain. For shipping a well-specified feature
+against a plan you trust, it is the wrong tool and
+[the comparison](comparison.md) says so explicitly and recommends the alternative.
+
+**The autonomous tools are adding gates too.** Plan modes, spec requirements, checkpoints, halting
+before irreversible operations. The disagreement is not gates versus no gates. It is where they go
+— and this puts one before the commit rather than after it.
+
+### The condition under which this is wrong
+
+This is a bet that comprehension compounds and raw speed does not. The bet has a losing case, and
+it is worth naming: **if model reliability improves enough that unreviewed code stays maintainable
+anyway, the overhead here buys nothing.**
+
+That is an empirical question, not a philosophical one, and it will be settled by evidence rather
+than argument. If you find that six months of unreviewed agent output left you with a codebase you
+can still change confidently, this skill is not for you and you should not use it.
