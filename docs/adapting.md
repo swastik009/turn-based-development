@@ -20,7 +20,7 @@ to, so the agent opens it only when the situation calls for it. Two ship with th
 | File | Read when |
 |---|---|
 | [`make-being-wrong-loud.md`](../skills/reviewable-increments/references/make-being-wrong-loud.md) | designing error handling, fallbacks, or anything parsing outside input |
-| [`researching-contracts.md`](../skills/reviewable-increments/references/researching-contracts.md) | writing against an external API, or two sources disagree |
+| [`researching-contracts.md`](../skills/reviewable-increments/references/researching-contracts.md) | two sources disagree, or the exact bytes matter |
 
 Add your own the same way — API contracts, architecture decisions, domain notes.
 
