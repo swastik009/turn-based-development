@@ -19,11 +19,17 @@ A project has tasks. **Each task is split into several turns**, and a turn — n
 the unit of work: one coherent block of change, roughly a function, a class, or one cohesive
 edit.
 
-Every turn, the agent:
+Before starting a task, the agent lists that task's turns and asks you to agree them. Then, each
+turn, it:
 
 1. explains the approach **before** writing it — what, why, what else it considered, what it costs
 2. writes one block, and stops
 3. shows the exact files and commit message, and asks you to review before anything lands
+
+```
+Task 2/4 — Rate limit the API client
+Turn 1/4 — token bucket helper
+```
 
 Approval never carries to the next turn. Ten tasks might be sixty turns — that is the intent, not
 overhead.

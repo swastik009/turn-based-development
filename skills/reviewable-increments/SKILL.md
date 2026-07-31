@@ -5,11 +5,12 @@ description: Use when about to edit files or make commits in a repository the en
 
 # Reviewable Increments
 
-The unit of work is a **turn**: one coherent block of change, reviewed by the engineer, committed
-on its own with their approval. Split every task into turns before writing code.
+A project splits into **tasks**; every task splits into **turns**. The turn — not the task — is
+the unit of work: one coherent block of change, reviewed by the engineer, committed on its own
+with their approval. There are no turns without a task.
 
 ```
-brainstorm → spec → plan → turn → review → commit → turn → … → docs sync
+brainstorm → spec → plan → task → agree its turns → turn → review → commit → … → docs sync
 ```
 
 Each arrow is a gate. Nothing passes one on the agent's own judgement.
@@ -25,6 +26,33 @@ Compose freely *inside* a turn: `test-driven-development`, `systematic-debugging
 ## Rules
 
 Not preferences. An agent that "improves" on these has broken the workflow.
+
+### 0. Split the task into turns, and agree the list before starting
+
+**Mandatory, with no exceptions.** A one-line typo fix is `Task 1/1`, `Turn 1/1`. There is no
+threshold below which the structure is skipped, because deciding what counts as "small enough"
+is the judgement this workflow exists to keep away from the agent.
+
+Immediately before starting a task — not at plan time, and never for tasks not yet reached —
+enumerate **that task's** turns. Numbered, one line each, naming what changes and in which file.
+Then ask for the list to be agreed:
+
+```
+Task 2/4 — Rate limit the API client
+Splitting into turns before I start:
+  1. token bucket helper     (limits.py)
+  2. test for the helper     (test_limits.py)
+  3. wire into the client    (client.py)
+  4. test the wiring         (test_client.py)
+Agreed?
+```
+
+The split is the highest-leverage decision in the workflow: every later gate operates on units
+this step defined, so a wrong split makes every turn after it wrong.
+
+If the split turns out wrong mid-task, say so and re-agree it. Do not silently re-plan, and do not
+quietly extend the count — a denominator that drifts without comment makes the progress line a
+guess. Record the change per rule 9.
 
 ### 1. Explain a new plan before writing it
 
@@ -129,7 +157,14 @@ consequence.
 
 ## Turn structure
 
-Every turn contains:
+Every turn opens with two heading lines, so position is never ambiguous:
+
+```
+Task 2/4 — Rate limit the API client
+Turn 1/4 — token bucket helper
+```
+
+Then:
 
 1. **The change** — one block.
 2. **Evidence** — actual command output, not a claim about it.
