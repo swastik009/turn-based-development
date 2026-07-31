@@ -33,6 +33,10 @@ Not preferences. An agent that "improves" on these has broken the workflow.
 threshold below which the structure is skipped, because deciding what counts as "small enough"
 is the judgement this workflow exists to keep away from the agent.
 
+**Size a task to one session.** A task is a coherent piece of work you would open a session for
+and close when it is done — "add user login", then separately "add password reset". If a task
+cannot plausibly finish in one sitting, it is two tasks; say so before splitting it into turns.
+
 Immediately before starting a task — not at plan time, and never for tasks not yet reached —
 enumerate **that task's** turns. Numbered, one line each, naming what changes and in which file.
 Then ask for the list to be agreed:
@@ -61,10 +65,10 @@ somewhere for this — and tick each turn off as it lands:
 - [ ] 4. test the wiring         (test_client.py)
 ```
 
-**Read the position from that file, never from memory of the conversation.** Sixty turns do not
-fit in one context window: the early ones are summarised away, and a remembered count silently
-becomes a guess at exactly the point the project is large enough to need one. The file also
-survives closing the session, and lets the engineer check progress without asking.
+**Read the position from that file, never from memory of the conversation.** A project outlives
+its sessions — you finish one task, close the session, and open the next one tomorrow with none
+of the conversation left. A remembered count becomes a guess the moment a session ends, and a
+guess looks exactly like a fact. The file also lets the engineer check progress without asking.
 
 The tick is part of the turn it belongs to, so it lands in that turn's commit (rule 9).
 

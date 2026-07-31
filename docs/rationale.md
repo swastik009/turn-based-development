@@ -3,6 +3,16 @@
 `SKILL.md` states the rules without arguing for them — that keeps it small, and the agent does not
 need persuading. The arguments are here.
 
+## This is not a constraint invented for agents
+
+It is how the work already gets done. An engineer handed "build user accounts" does not start
+typing — they split it into sign-up, then login, then password reset, and take them one at a
+time, finishing one before opening the next.
+
+The skill asks the agent to work at the granularity the engineer was going to review at anyway. A
+task is one sitting; a turn is one reviewable piece of it. Neither unit is new — what is new is
+the agent being held to them instead of delivering a finished branch and asking you to trust it.
+
 ## Why the workflow is shaped this way
 
 Slower per feature, faster per quarter:
