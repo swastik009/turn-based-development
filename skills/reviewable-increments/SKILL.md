@@ -1,6 +1,6 @@
 ---
 name: reviewable-increments
-description: Use when an engineer wants to stay in control of what an agent changes and be able to maintain the result themselves, rather than receiving a large multi-file branch to accept or reject wholesale.
+description: Use when about to edit files or make commits in a repository the engineer maintains themselves - including sessions that began as a question, a review, a small fix, or work on the tooling itself and grew into real changes. Check at the point of the first write or commit, not only at the start of a session.
 ---
 
 # Reviewable Increments
