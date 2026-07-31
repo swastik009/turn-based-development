@@ -38,55 +38,45 @@ overhead.
 
 ## Install
 
-```bash
-git clone https://github.com/swastik009/turn-based-development.git
-cd turn-based-development
-./install.sh
-```
-
-Symlinks the skill into `~/.agents/skills/` and points each installed runtime at it, so
-`git pull` updates all of them. Claude Code also reads `~/.claude/skills/`; Codex, Copilot CLI
-and Gemini CLI read `~/.agents/skills/`. For Cursor, Grok CLI or direct API use, paste
-[`SKILL.md`](skills/turn-based-development/SKILL.md) into your rules file — it names no
-Claude-specific feature.
-
-Claude Code, without cloning — **this route also installs the trigger below**:
+### Claude Code
 
 ```
 /plugin marketplace add swastik009/turn-based-development
 /plugin install turn-based-development@turn-based-development
 ```
 
-## Making it actually fire
+That is everything. The plugin carries the skill and the hook that loads it, so it is active in
+any git repository from your next session.
 
-Installing the skill is not enough, and this is the part everyone gets wrong.
+### Other agents
 
-A skill's `description` answers *"what kind of task is this?"* — so a model reads
-`add a retry helper` and looks for a skill about retries. This isn't a kind of task. It is how
-you do **any** task, so there is no request for it to match against. Tested on a real repo, it
-did not fire once. The skill sat correctly installed and unread while the agent edited files.
-
-Something has to *tell* the agent it exists. Pick one:
-
-| | Covers | Setup |
-|---|---|---|
-| **Plugin install** | every git repo | none — [`hooks/hooks.json`](hooks/hooks.json) ships with it |
-| **`CLAUDE.md` line** | one repo | one line, no config |
-| **`/turn-based-development`** | one session | type it |
-
-If you installed with `install.sh` rather than as a plugin, the hook does not come with it — a
-shell script quietly editing your global settings would be worse than the problem. Either add
-[`hooks/hooks.json`](hooks/hooks.json)'s `SessionStart` entry to `~/.claude/settings.json`
-yourself, or use the `CLAUDE.md` route:
-
-```markdown
-**Use the `turn-based-development` skill for all work in this repository.** Load it before the
-first file edit or commit — not only at the start of a session.
+```bash
+git clone https://github.com/swastik009/turn-based-development.git
+cd turn-based-development
+./install.sh
 ```
 
-The shipped hook fires on `startup|clear|compact` and stays silent outside a git repo. The
-`compact` matcher matters: compaction discards the injected instruction along with everything
-else, so without it the workflow quietly stops applying partway through a long task.
+Symlinks the skill into `~/.agents/skills/` — read by Codex, Copilot CLI and Gemini CLI — and
+into each installed runtime, so `git pull` updates all of them at once. It also offers to add the
+hook, since a symlinked skill has nothing to trigger it.
+
+For Cursor, Grok CLI or direct API use, paste
+[`SKILL.md`](skills/turn-based-development/SKILL.md) into your rules file. It names no
+Claude-specific feature.
+
+### Making sure it fires
+
+A skill description says what kind of *task* it suits. This suits every task, so nothing matches
+it — on a clean test repo it never fired once. Something has to tell the agent it exists. The
+plugin and `install.sh` both handle that; otherwise, one line in a project's `CLAUDE.md`:
+
+```markdown
+Use the `turn-based-development` skill for all work in this repository. Load it before the first
+file edit or commit.
+```
+
+`/turn-based-development` always works for a single session.
+[Why the hook is built this way](docs/adapting.md#the-hook).
 
 ## When not to use it
 

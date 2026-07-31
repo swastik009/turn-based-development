@@ -30,3 +30,24 @@ not let it drift silently.
 
 **The commit gate should never be relaxed.** It is the cheapest of these rules and the one that
 preserves the most optionality.
+
+## The hook
+
+The description alone will not trigger the skill. A description answers *"what kind of task is
+this?"*, so a model reading `add a retry helper` looks for a skill about retries. This is not a
+kind of task — it is how you do any task, so there is nothing for it to match. On a clean test
+repo it never fired: the skill sat correctly installed and unread while the agent edited files.
+The hook exists because of that result, not in anticipation of it.
+
+`hooks/hooks.json` runs [`hooks/session-start.sh`](../hooks/session-start.sh) at session start.
+Two details in it are deliberate.
+
+**It fires on `startup|clear|compact`.** Compaction discards the injected instruction along with
+everything else, so without the `compact` matcher the workflow would quietly stop applying partway
+through a long task — around the point the discipline matters most.
+
+**Outside a git repo it says so rather than going quiet.** The skill genuinely does not apply
+there; every gate it has is built on commits. But a hook that exits silently is indistinguishable
+from a hook that is broken, so it explains itself and offers `git init` if this is a real project.
+That is the same standard the skill holds code to — see
+[make-being-wrong-loud.md](../skills/turn-based-development/references/make-being-wrong-loud.md).
