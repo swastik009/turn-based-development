@@ -69,6 +69,11 @@ Stop and ask both:
 Every time, including "obviously done" fixes and mid-task commits. Approval never carries
 forward. Finishing an edit is not permission to commit it.
 
+**Format: Conventional Commits with an explicit scope** — `type(scope): subject`. A bare `fix:`
+without the parenthesised scope does not satisfy this. The scope names the area changed, not the
+file path. If the repo has no established scope vocabulary, propose one and get it agreed rather
+than inventing a scope per commit.
+
 ### 5. Do not start the next change until the commit is resolved
 
 Committed, deferred, or declined — but answered. *"This next bit is related, I'll fold it in"* is

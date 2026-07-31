@@ -139,8 +139,12 @@ project instructions (`CLAUDE.md`, `AGENTS.md`, `.cursorrules`), or simply paste
 a session. The rules do not depend on the tool.
 
 **Keep project-specific detail out of `SKILL.md`.** Conventions that apply everywhere live there;
-your stack, commit format, directory layout and definition of done belong in a project file.
-Mixing them makes both harder to reuse.
+your stack, directory layout and definition of done belong in a project file. Mixing them makes
+both harder to reuse.
+
+The line falls between a published standard and a house style. Rule 4 requires Conventional
+Commits with a scope, because that is a spec anyone can look up — but the *scope vocabulary* is
+yours, and belongs in the project file alongside everything else on that list.
 
 **Use `references/` for anything long.** `SKILL.md` stays resident for the whole session, so it
 holds only the rules. Depth goes in
