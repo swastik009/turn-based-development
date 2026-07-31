@@ -1,0 +1,19 @@
+{
+  "name": "reviewable-increments",
+  "description": "Workflow for building software with an AI agent you intend to own: design before code, one reviewable block per turn, and a commit gate the agent may never pass on its own.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Swastik Thapaliya",
+    "email": "swastik.thapaliya@gmail.com"
+  },
+  "homepage": "https://github.com/swastik009/reviewable-increments",
+  "repository": "https://github.com/swastik009/reviewable-increments",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "workflow",
+    "code-review",
+    "agent-collaboration",
+    "incremental-development"
+  ]
+}
